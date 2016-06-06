@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+        $(document).ready(function () {
+            $("#log").dialog({
+                title: "请登录",
+                closable: false,
+                modal: true,
+                width: 350,
+                height: 200,
+                buttons: [
+                {
+                    text: "登录",
+                    iconCls: "icon-key",
+                    handler: function () {
+                        $("#f_login").form("submit", {
+                            url: "User/Login",
+                            onSubmit: function (param) {
+                                param.action = 'login';
+                            },
+                            success: function (result) {
+                                if (result == "ok") {
+                                    location.href = "home/";
+                                }
+                                else {
+                                    $.messager.alert("错误", result);
+                                }
+                            }
+                        });
+                    }
+                }
+                ]
+            });
+        })
+</script>
+<body>
+    <div id="log" style="padding: 15px; text-align: center">
+        <form id="f_login" method="post">
+            <table class="tableForm" style="width: 100%">
+                <tr>
+                    <td>
+                        用户名：
+                    </td>
+                    <td>
+                        <input type="text" name="userName" style="width: 150px" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        密码：
+                    </td>
+                    <td>
+                        <input type="password" name="pwd" style="width: 150px" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+

@@ -1,0 +1,355 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body class="easyui-layout">
+    <noscript>
+        <div style="position: absolute; z-index: 100000; height: 2046px; top: 0px; left: 0px;
+            width: 100%; background: white; text-align: center;">
+            <img src="images/noscript.gif" alt='抱歉，请开启脚本支持！' />
+        </div>
+    </noscript>
+    <div data-options="region:'north',border:false" style="height: 60px; background: #B3DFDA;
+        padding: 10px; font-size: xx-large">
+        小型BS通用权限管理系统
+        <div style="position: absolute; right: 5px; top: 10px;" id="div_welcom">
+        </div>
+        <div style="position: absolute; right: 0px; bottom: 0px;">
+            <a href="javascript:void(0);" class="easyui-menubutton" data-options="menu:'#layout_north_kzmbMenu',iconCls:'icon-help'">
+                控制面板
+            </a> <a href="javascript:void(0);" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-back'"
+                    onclick="loginout()">退出系统</a>
+        </div>
+    </div>
+    <div data-options="region:'west',split:true,title:'导航菜单'" style="width: 160px;" id="westreg">
+        <div border="false" fit="true" class="easyui-accordion">
+            <div style="overflow: auto; padding: 5px;" data-options="iconCls:'icon-add'" title="系统设置">
+                <ul>
+                    <li>
+                        <div class="">
+                            <a ref="12" rel="htm_ui/ui_role_menu.htm" href="#">
+                                <span style="width: 16px; display: inline-block" class="icon-group_key">&nbsp;</span>
+                                <span class="nav">角色权限设置</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="">
+                            <a ref="11" rel="/Common/SysUser/" href="#">
+                                <span style="width: 16px; display: inline-block" class="icon-group">&nbsp;</span>
+                                <span class="nav">用户管理</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="">
+                            <a ref="13" rel="htm_ui/ui_org.htm" href="#">
+                                <span style="width: 16px; display: inline-block" class="icon-org">&nbsp;</span>
+                                <span class="nav">组织管理</span>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-options="region:'south',border:true,split:false" style="height: 25px; background: #e0ecff;
+        text-align: center; line-height: 23px">
+        Copyright © zhumingming(Berton) @DateTime.Now.Year
+    </div>
+    <div data-options="region:'center'">
+        <div id="tabs" class="easyui-tabs" fit="true" border="false" data-options="
+                    tools:[{iconCls : 'icon-reload',handler:refreshTab},
+                    {iconCls : 'icon-cancel',handler:closeTab}]
+                    " plain="true">
+            <div title="欢迎使用" style="padding: 20px; overflow: hidden;" id="home">
+                <h1></h1>
+                <h1>
+                    欢迎进行技术交流、提交BUG
+                </h1>
+                <h1></h1>
+                <h1></h1>
+            </div>
+        </div>
+    </div>
+    <div id="mm" class="easyui-menu" style="width: 150px;">
+        <div id="mm-tabclose">
+            关闭
+        </div>
+        <div id="mm-tabcloseall">
+            全部关闭
+        </div>
+        <div id="mm-tabcloseother">
+            除此之外全部关闭
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="mm-tabcloseright">
+            当前页右侧全部关闭
+        </div>
+        <div id="mm-tabcloseleft">
+            当前页左侧全部关闭
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div id="mm-exit">
+            退出
+        </div>
+    </div>
+    <div id="layout_north_kzmbMenu" style="width: 100px; display: none;">
+        <div onclick="changepwds();">
+            修改密码
+        </div>
+        <div class="menu-sep">
+        </div>
+        <div>
+            <span>更换主题</span>
+            <div style="width: 120px;">
+                <div onclick="changeTheme('default');">
+                    default
+                </div>
+                <div onclick="changeTheme('gray');">
+                    gray
+                </div>
+                <div onclick="changeTheme('metro');">
+                    metro
+                </div>
+                <div onclick="changeTheme('cupertino');">
+                    cupertino
+                </div>
+                <div onclick="changeTheme('dark-hive');">
+                    dark-hive
+                </div>
+                <div onclick="changeTheme('pepper-grinder');">
+                    pepper-grinder
+                </div>
+                <div onclick="changeTheme('sunny');">
+                    sunny
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="hd_account" />
+</body>
+<script>
+    $(function () {
+        //initLogin();
+        InitLeftMenu();
+        tabClose();
+        tabCloseEven();
+    })
+
+    //初始化左侧
+    function InitLeftMenu() {
+        //$.ajax({
+        //    url: "../ashx_ui/ui_leftmenu.ashx",
+        //    type: "POST",
+        //    dataType: "json",
+        //    success: function (_menus) {
+
+        //        $("#westreg").empty();
+        //        var menulist = "";
+        //        menulist += '<div class="easyui-accordion" fit="true" border="false">';
+        //        $.each(_menus.menus, function (i, n) {
+        //            menulist += '<div title="' + n.menuname + '" data-options="iconCls:\'' + n.icon + '\'" style="overflow: auto; padding: 5px;">';
+        //            menulist += '<ul>';
+        //            $.each(n.menus, function (j, o) {
+        //                menulist += '<li><div><a href="###" rel="' + o.url + '" ref="' + o.menuid + '"><span class="' + o.icon + '" style="width: 16px; display: inline-block">&nbsp;</span><span class="nav">' + o.menuname + '</span></a></div></li>';
+        //            })
+        //            menulist += '</ul></div>';
+        //        })
+        //        menulist += '</div>';
+        //        $("#westreg").append(menulist);
+        $('.easyui-accordion li a').click(function () {
+            var tabTitle = $(this).children('.nav').text();
+
+            var url = $(this).attr("rel");
+            var menuid = $(this).attr("ref");
+            var icon = $(this).children('span').first().attr('class');
+            addTab(tabTitle, url, icon);
+            $('.easyui-accordion li div').removeClass("selected");
+            $(this).parent().addClass("selected");
+        }).hover(function () {
+            $(this).parent().addClass("hover");
+        }, function () {
+            $(this).parent().removeClass("hover");
+        });
+
+        //导航菜单绑定初始化
+        $(".easyui-accordion").accordion();
+        //    },
+        //    error: function (xhr, status) {
+        //        if (xhr.responseText == "nosession") {
+        //            $.relogin();
+        //        }
+        //    }
+        //})
+    }
+
+    function initLogin() {
+        getSession(function f(r) {
+            try {
+                var user = $.parseJSON(r);
+                if (user.id) {
+                    $("#div_welcom").html(user.xingming + "，欢迎您！");
+                    $("#hd_account").val(user.account);
+                }
+                else {
+                    $.relogin();
+                }
+            }
+            catch (e) { }
+
+        })
+    }
+
+    function addTab(subtitle, url, icon) {
+        if (!$('#tabs').tabs('exists', subtitle)) {
+            $('#tabs').tabs('add', {
+                title: subtitle,
+                //content: createFrame(url),
+                href: url,
+                closable: true,
+                icon: icon,
+                loadingMessage: '正在加载中......'
+            });
+        } else {
+            $('#tabs').tabs('select', subtitle);
+            var tab = $('#tabs').tabs('getSelected');
+            $('#tabs').tabs('update', {
+                tab: tab,
+                options: {
+                    title: subtitle,
+                    href: url,
+                    closable: true
+                }
+            });
+        }
+        tabClose();
+    }
+
+    function createFrame(url) {
+        var s = '<iframe scrolling="auto" frameborder="0" src="' + url + '" style="width:100%;height:100%;"></iframe>';
+        return s;
+    }
+
+    function tabClose() {
+        /*双击关闭TAB选项卡*/
+        $(".tabs-inner").dblclick(function () {
+            var subtitle = $(this).children(".tabs-closable").text();
+            $('#tabs').tabs('close', subtitle);
+        })
+        /*为选项卡绑定右键*/
+        $(".tabs-inner").bind('contextmenu', function (e) {
+            $('#mm').menu('show', {
+                left: e.pageX,
+                top: e.pageY
+            });
+
+            var subtitle = $(this).children(".tabs-closable").text();
+
+            $('#mm').data("currtab", subtitle);
+            $('#tabs').tabs('select', subtitle);
+            return false;
+        });
+    }
+    //绑定右键菜单事件
+    function tabCloseEven() {
+        //关闭当前
+        $('#mm-tabclose').click(function () {
+            var currtab_title = $('#mm').data("currtab");
+            $('#tabs').tabs('close', currtab_title);
+        })
+        //全部关闭
+        $('#mm-tabcloseall').click(function () {
+            $('.tabs-inner span').each(function (i, n) {
+                var t = $(n).text();
+                $('#tabs').tabs('close', t);
+            });
+        });
+        //关闭除当前之外的TAB
+        $('#mm-tabcloseother').click(function () {
+            var currtab_title = $('#mm').data("currtab");
+            $('.tabs-inner span').each(function (i, n) {
+                var t = $(n).text();
+                if (t != currtab_title)
+                    $('#tabs').tabs('close', t);
+            });
+        });
+        //关闭当前右侧的TAB
+        $('#mm-tabcloseright').click(function () {
+            var nextall = $('.tabs-selected').nextAll();
+            if (nextall.length == 0) {
+                //msgShow('系统提示','后边没有啦~~','error');
+                //  alert('后边没有啦~~');
+                return false;
+            }
+            nextall.each(function (i, n) {
+                var t = $('a:eq(0) span', $(n)).text();
+                $('#tabs').tabs('close', t);
+            });
+            return false;
+        });
+        //关闭当前左侧的TAB
+        $('#mm-tabcloseleft').click(function () {
+            var prevall = $('.tabs-selected').prevAll();
+            if (prevall.length == 0) {
+                // alert('到头了，前边没有啦~~');
+                return false;
+            }
+            prevall.each(function (i, n) {
+                var t = $('a:eq(0) span', $(n)).text();
+                $('#tabs').tabs('close', t);
+            });
+            return false;
+        });
+
+        //退出
+        $("#mm-exit").click(function () {
+            $('#mm').menu('hide');
+        })
+    }
+
+    function refreshTab() {
+        var index = $('#tabs').tabs('getTabIndex', $('#tabs').tabs('getSelected'));
+        $('#tabs').tabs('getTab', index).panel('refresh');
+    }
+
+    function closeTab() {
+        var index = $('#tabs').tabs('getTabIndex', $('#tabs').tabs('getSelected'));
+        $('#tabs').tabs('close', index);
+    }
+
+    //
+    function changepwds() {
+        alert('修改密码');
+        alert(Session["user"].ToString());
+    }
+    function loginout() {
+        $.messager.confirm('提示！', '确定退出系统？', function (r) {
+            if (r) {
+
+                try {
+                    var para = { "action": "loginout" };
+                    $.ajax({
+                        url: "/ashx_ui/login.ashx",
+                        type: "post",
+                        data: para,
+                        success: function (r) {
+                            window.location.href = "login.htm";
+                        }
+                    })
+                }
+                catch (e)
+                { }
+            }
+        })
+    }
+
+    // window.onbeforeunload() {
+    //    if (event.clientX > document.body.clientWidth && event.clientY < 0 || event.altKey) {
+    //        window.event.returnValue = "确定要退出本页吗？";
+    //    }
+
+    //}
+</script>

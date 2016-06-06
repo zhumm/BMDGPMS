@@ -1,0 +1,233 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#dg_user").datagrid({
+            url: "/Common/SysUser/Search",
+            idField: 'id',
+            fit: true,
+            fitColumns: true,
+            singleSelect: false,
+            rownumbers: true,
+            nowrap: false,
+            pagination: true,
+            loadMsg: loadMsg,
+            pageSize: defaultPageSize,
+            pageList: defaultPageList,
+            columns: [[
+                { field: 'ID', checkbox: true },
+                { field: 'UserName', title: '登录名称', width: 30 },
+                { field: 'TrueName', title: '真实姓名', width: 30 },
+                { field: 'UserType', title: '用户类型', width: 30,formatter:GetUserType },
+                { field: 'Sex', title: '性别', width: 10 },
+                { field: 'BirthDay', title: '出生年月', width: 25, formatter: ChangeDateFormat },
+                { field: 'Enable', title: '是否启用', width: 30 },
+                { field: 'Remark', title: '信息备注', width: 30 }
+
+            ]],
+            toolbar: [{
+                text: '查询用户',
+                iconCls: 'icon-search'
+            }, '-',
+                  {
+                      text: '添加用户',
+                      iconCls: 'icon-add',
+                      handler: Add
+                  }, '-',
+                  {
+                      text: '修改用户',
+                      iconCls: 'icon-edit',
+                      handler: edituser
+                  }, '-',
+                  {
+                      text: '删除用户',
+                      iconCls: 'icon-remove',
+                      handler: deleteuser
+
+                  }, '-',
+                  {
+                      text: '设置用户角色',
+                      iconCls: 'icon-group_key',
+                  }, '-',
+                  {
+                      text: '设置用户组织',
+                      iconCls: 'icon-org',
+                  }]
+        })
+    })
+    function GetUserType(value,row,index)
+    {
+        switch (value)
+        {
+            case "1":
+                return "系统用户";
+            case "2":
+                return "普通员工";
+        }
+
+    }
+    function Add() {
+        $("#addDlg").dialog('setTitle', "添加用户");
+        $("#addDlg").dialog('open');
+    }
+    function AddSave() {
+        $("#AddUserForm").form("submit", {
+            onSubmit: function (param) {
+                //param.action = 'add';
+                return $(this).form('validate');
+            },
+            success: function (result) {
+                $.show_warning("提示", "保存成功");
+                $("#dg_user").datagrid('reload');
+            }
+        });
+    }
+    function edituser() {
+        var r = $("#dg_user").datagrid("getChecked");
+        if (r.length < 1) {
+            $.show_warning("错误", "请选择一个要修改的用户");
+            return;
+        }
+        if (r.length > 1) {
+            $.show_warning("错误", "一次只能修改一个用户");
+            $("#dg_user").datagrid('clearSelections').datagrid('clearChecked');
+            return;
+        }
+        $.ajax({
+            url: "/Common/SysUser/GetById",
+            data: {"Id":r.ID},
+            type: "POST",
+            dataType: "text",
+            success: function (result) {
+                var model = eval(result);
+
+            }
+        });
+    }
+    function deleteuser() {
+        var rows = $("#dg_user").datagrid("getChecked");
+        if (rows.length < 1) {
+            $.show_warning("错误", "请选择要删除的用户");
+            return;
+        }
+        $.messager.confirm('提示！', '确定删除这' + rows.length + '个用户?', function (r) {
+            if (r) {
+                para = {};
+                para.action = "dele";
+                para.timespan = new Date().getTime();
+                para.id = "";
+                $.each(rows, function (i, row) {
+                    para.id = para.id + "'" + row.id + "',";
+                });
+                $.ajax({
+                    url: "../ashx_ui/ui_user.ashx",
+                    data: para,
+                    type: "POST",
+                    dataType: "text",
+                    success: function (result) {
+                        dealAjaxResult(result, function (r) {
+                            $.show_warning("提示", "操作成功");
+                            $("#dg_user").datagrid("reload").datagrid('clearSelections').datagrid('clearChecked');;
+                        })
+                    }
+                });
+            }
+        });
+    }
+</script>
+<div class="easyui-layout" data-options="fit : true,border : false">
+    <div data-options="region:'north',title:'查询条件',border:false,iconCls:'icon-columns'"
+         style="height: 100px; background: #f4f4f4;">
+        <!-- <div id="p" class="easyui-panel" title="检索条件" style="padding: 10px; height: 100px;
+                background: #f4f4f4; border-bottom: none" data-options="iconCls:'icon-columns',closable:false,
+                collapsible:true,minimizable:false,maximizable:false">
+            </div>-->
+    </div>
+    <div data-options="region:'center',border:false">
+        <table id="dg_user"></table>
+    </div>
+</div>
+<div class="easyui-dialog" id="addDlg" title="添加用户" style="padding:10px;width:500px;" closed="true" data-options="iconCls:'icon-add',modal:true,resizable:true">
+    <div class="easyui-panel" style="text-align: center">
+        <form id="AddUserForm" method="post" action="/Common/SysUser/Add">
+            <table class="tableForm">
+                <tr>
+                    <td>
+                        登录名称：
+                    </td>
+                    <td>
+                        <input name="UserName" class="easyui-validatebox" data-options="required:true" />
+                    </td>
+                    <td>
+                        真实姓名：
+                    </td>
+                    <td>
+                        <input name="TrueName" class="easyui-validatebox" data-options="required:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        性别：
+                    </td>
+                    <td>
+                        <input type="radio" name="Sex" checked="checked" value="1" />
+                        男
+                        <input type="radio" name="Sex" value="0" />女
+                    </td>
+                    <td>
+                        出生日期：
+                    </td>
+                    <td>
+                        <input name="BirthDay" class="easyui-datebox" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        用户类型：
+                    </td>
+                    <td>
+                        <select class="easyui-combobox" name="UserType">
+                            <option value="1">管理员</option>
+                            <option value="2">普通员工</option>
+                        </select>
+                    </td>
+                    <td>
+                        是否启用：
+                    </td>
+                    <td>
+                        <input type="radio" name="Enable" checked="checked" value="true" />
+                        启用
+                        <input type="radio" name="Sex" value="false" />禁用
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        密码：
+                    </td>
+                    <td>
+                        <input type="password" name="Password" class="easyui-validatebox" data-options="required:true" />
+                    </td>
+                    <td>
+                        确认密码：
+                    </td>
+                    <td>
+                        <input type="password" id="txtAddRePWD" class="easyui-validatebox" data-options="required:true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>信息备注：</td>
+                    <td colspan="3">
+                        <input name="Remark" class="easyui-textbox" data-options="multiline:true" style="height:60px;width:375px" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <div style="margin:0 auto">
+            <button class="easyui-linkbutton  l-btn l-btn-small" iconcls="icon-ok" id="saveBtn1" onclick="AddSave()">保存</button>
+            <button class="easyui-linkbutton  l-btn l-btn-small" iconcls="icon-cancel" onclick="$('#addDlg').dialog('close');">关闭</button>
+        </div>
+    </div>
+</div>

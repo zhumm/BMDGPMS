@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MDORM.BusinessRepository</name>
+    </assembly>
+    <members>
+        <member name="T:MDORM.BusinessRepository.MenuRepository">
+            <summary>
+            表[Menu] 数据仓库代码
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:34
+        </member>
+        <member name="M:MDORM.BusinessRepository.MenuRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MDORM.BusinessRepository.MenuRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:MDORM.BusinessRepository.MenuRepository.GetPage(System.Int32,System.Int32,System.Int32@,System.Object,System.Collections.Generic.IList{MDORM.DapperExt.ISort})">
+            <summary>
+            分页获取,默认按照时间降序排序
+            </summary>
+            <param name="pageIndex">页索引</param>
+            <param name="pageSize">页大小</param>
+            <param name="allRowsCount">全部记录数</param>
+            <param name="predicate">查询条件</param>
+            <param name="sort">排序</param>
+            <returns></returns>
+        </member>
+        <member name="P:MDORM.BusinessRepository.MenuRepository.Value">
+            <summary>
+            静态MenuRepository对象,单例模式。
+            </summary>
+        </member>
+        <member name="T:MDORM.BusinessRepository.RoleMenuRepository">
+            <summary>
+            表[RoleMenu] 数据仓库代码
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:34
+        </member>
+        <member name="M:MDORM.BusinessRepository.RoleMenuRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MDORM.BusinessRepository.RoleMenuRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:MDORM.BusinessRepository.RoleMenuRepository.GetPage(System.Int32,System.Int32,System.Int32@,System.Object,System.Collections.Generic.IList{MDORM.DapperExt.ISort})">
+            <summary>
+            分页获取,默认按照时间降序排序
+            </summary>
+            <param name="pageIndex">页索引</param>
+            <param name="pageSize">页大小</param>
+            <param name="allRowsCount">全部记录数</param>
+            <param name="predicate">查询条件</param>
+            <param name="sort">排序</param>
+            <returns></returns>
+        </member>
+        <member name="P:MDORM.BusinessRepository.RoleMenuRepository.Value">
+            <summary>
+            静态RoleMenuRepository对象,单例模式。
+            </summary>
+        </member>
+        <member name="T:MDORM.BusinessRepository.RoleRepository">
+            <summary>
+            表[Role] 数据仓库代码
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:34
+        </member>
+        <member name="M:MDORM.BusinessRepository.RoleRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MDORM.BusinessRepository.RoleRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:MDORM.BusinessRepository.RoleRepository.GetPage(System.Int32,System.Int32,System.Int32@,System.Object,System.Collections.Generic.IList{MDORM.DapperExt.ISort})">
+            <summary>
+            分页获取,默认按照时间降序排序
+            </summary>
+            <param name="pageIndex">页索引</param>
+            <param name="pageSize">页大小</param>
+            <param name="allRowsCount">全部记录数</param>
+            <param name="predicate">查询条件</param>
+            <param name="sort">排序</param>
+            <returns></returns>
+        </member>
+        <member name="P:MDORM.BusinessRepository.RoleRepository.Value">
+            <summary>
+            静态RoleRepository对象,单例模式。
+            </summary>
+        </member>
+        <member name="T:MDORM.BusinessRepository.SysUserRepository">
+            <summary>
+            表[SysUser] 数据仓库代码
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:34
+        </member>
+        <member name="M:MDORM.BusinessRepository.SysUserRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MDORM.BusinessRepository.SysUserRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:MDORM.BusinessRepository.SysUserRepository.GetPage(System.Int32,System.Int32,System.Int32@,System.Object,System.Collections.Generic.IList{MDORM.DapperExt.ISort})">
+            <summary>
+            分页获取,默认按照时间降序排序
+            </summary>
+            <param name="pageIndex">页索引</param>
+            <param name="pageSize">页大小</param>
+            <param name="allRowsCount">全部记录数</param>
+            <param name="predicate">查询条件</param>
+            <param name="sort">排序</param>
+            <returns></returns>
+        </member>
+        <member name="P:MDORM.BusinessRepository.SysUserRepository.Value">
+            <summary>
+            静态SysUserRepository对象,单例模式。
+            </summary>
+        </member>
+        <member name="T:MDORM.BusinessRepository.UserMenuRepository">
+            <summary>
+            表[UserMenu] 数据仓库代码
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:34
+        </member>
+        <member name="M:MDORM.BusinessRepository.UserMenuRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MDORM.BusinessRepository.UserMenuRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:MDORM.BusinessRepository.UserMenuRepository.GetPage(System.Int32,System.Int32,System.Int32@,System.Object,System.Collections.Generic.IList{MDORM.DapperExt.ISort})">
+            <summary>
+            分页获取,默认按照时间降序排序
+            </summary>
+            <param name="pageIndex">页索引</param>
+            <param name="pageSize">页大小</param>
+            <param name="allRowsCount">全部记录数</param>
+            <param name="predicate">查询条件</param>
+            <param name="sort">排序</param>
+            <returns></returns>
+        </member>
+        <member name="P:MDORM.BusinessRepository.UserMenuRepository.Value">
+            <summary>
+            静态UserMenuRepository对象,单例模式。
+            </summary>
+        </member>
+        <member name="T:MDORM.BusinessRepository.UserRoleRepository">
+            <summary>
+            表[UserRole] 数据仓库代码
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:34
+        </member>
+        <member name="M:MDORM.BusinessRepository.UserRoleRepository.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MDORM.BusinessRepository.UserRoleRepository"/> class.
+            </summary>
+        </member>
+        <member name="M:MDORM.BusinessRepository.UserRoleRepository.GetPage(System.Int32,System.Int32,System.Int32@,System.Object,System.Collections.Generic.IList{MDORM.DapperExt.ISort})">
+            <summary>
+            分页获取,默认按照时间降序排序
+            </summary>
+            <param name="pageIndex">页索引</param>
+            <param name="pageSize">页大小</param>
+            <param name="allRowsCount">全部记录数</param>
+            <param name="predicate">查询条件</param>
+            <param name="sort">排序</param>
+            <returns></returns>
+        </member>
+        <member name="P:MDORM.BusinessRepository.UserRoleRepository.Value">
+            <summary>
+            静态UserRoleRepository对象,单例模式。
+            </summary>
+        </member>
+    </members>
+</doc>

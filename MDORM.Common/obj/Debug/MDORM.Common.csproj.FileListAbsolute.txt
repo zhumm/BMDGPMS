@@ -1,0 +1,16 @@
+D:\github\trunk\MDORM.Common\bin\Debug\MDORM.Common.xml
+D:\github\trunk\MDORM.Common\bin\Debug\MDORM.Common.dll
+D:\github\trunk\MDORM.Common\bin\Debug\MDORM.Common.pdb
+D:\github\trunk\MDORM.Common\bin\Debug\log4net.dll
+D:\github\trunk\MDORM.Common\bin\Debug\log4net.xml
+D:\github\trunk\MDORM.Common\obj\Debug\MDORM.Common.csprojResolveAssemblyReference.cache
+D:\github\trunk\MDORM.Common\obj\Debug\MDORM.Common.dll
+D:\github\trunk\MDORM.Common\obj\Debug\MDORM.Common.pdb
+D:\github\MDBSFW\MDORM.Common\bin\Debug\MDORM.Common.xml
+D:\github\MDBSFW\MDORM.Common\bin\Debug\MDORM.Common.dll
+D:\github\MDBSFW\MDORM.Common\bin\Debug\MDORM.Common.pdb
+D:\github\MDBSFW\MDORM.Common\bin\Debug\log4net.dll
+D:\github\MDBSFW\MDORM.Common\bin\Debug\log4net.xml
+D:\github\MDBSFW\MDORM.Common\obj\Debug\MDORM.Common.dll
+D:\github\MDBSFW\MDORM.Common\obj\Debug\MDORM.Common.pdb
+D:\github\MDBSFW\MDORM.Common\obj\Debug\MDORM.Common.csprojResolveAssemblyReference.cache

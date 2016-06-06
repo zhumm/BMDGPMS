@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/css/libs/WdatePicker.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/css/create.css" rel="stylesheet" type="text/css"> 
+    <link rel="stylesheet" type="text/css" href="~/jquery-easyui-1.4.3/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="~/jquery-easyui-1.4.3/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="~/Style/css/style.css" />
+    <script type="text/javascript" src="~/jquery-easyui-1.4.3/jquery.min.js"></script>
+    <script type="text/javascript" src="~/jquery-easyui-1.4.3/jquery.easyui.min.js"></script>
+
+    <title>@ViewBag.Title</title>
+    @RenderSection("CSS", required:false)
+</head>
+<body>
+    @RenderBody()
+    @Scripts.Render("~/bundles/jquery") 
+    @Scripts.Render("~/bundles/jqueryval")
+    @RenderSection("Script", required: false)
+</body>
+</html>

@@ -1,0 +1,495 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MDORM.Entity</name>
+    </assembly>
+    <members>
+        <member name="T:MDORM.Entity.Menu">
+            <summary>
+            Menu 实体类,包括:属性，重写的ToString方法
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:33
+        </member>
+        <member name="M:MDORM.Entity.Menu.ToString">
+            <summary>
+            返回这个对象的JSON格式字符串，方便记录日志
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:MDORM.Entity.Menu.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.MenuOrder">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.ChineseName">
+            <summary>
+            中文名称
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.EnglishName">
+            <summary>
+            英文名称
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.ResURL">
+            <summary>
+            资源地址
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.Modifier">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.Remark">
+            <summary>
+            信息备注
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.ParentId">
+            <summary>
+            父级ID
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Menu.ICON">
+            <summary>
+            图标
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.MenuMapper">
+            <summary>
+            Menu 映射类
+            </summary>
+            创建人：朱明明
+            创建时间：2016/5/23 15:03:02
+        </member>
+        <member name="M:MDORM.Entity.MenuMapper.#ctor">
+            <summary>
+            Menu Mapper构造函数（可自定义Mapper）
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.Role">
+            <summary>
+            Role 实体类,包括:属性，重写的ToString方法
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:33
+        </member>
+        <member name="M:MDORM.Entity.Role.ToString">
+            <summary>
+            返回这个对象的JSON格式字符串，方便记录日志
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:MDORM.Entity.Role.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Role.ChineseName">
+            <summary>
+            中文名称
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Role.EnglishName">
+            <summary>
+            英文名称
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Role.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Role.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Role.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Role.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Role.Modifier">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Role.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.Role.Remark">
+            <summary>
+            信息备注
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.RoleMapper">
+            <summary>
+            Role 映射类
+            </summary>
+            创建人：朱明明
+            创建时间：2016/5/23 15:03:02
+        </member>
+        <member name="M:MDORM.Entity.RoleMapper.#ctor">
+            <summary>
+            Role Mapper构造函数（可自定义Mapper）
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.RoleMenu">
+            <summary>
+            RoleMenu 实体类,包括:属性，重写的ToString方法
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:33
+        </member>
+        <member name="M:MDORM.Entity.RoleMenu.ToString">
+            <summary>
+            返回这个对象的JSON格式字符串，方便记录日志
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:MDORM.Entity.RoleMenu.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.RoleMenu.RoleId">
+            <summary>
+            RoleId
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.RoleMenu.MenuId">
+            <summary>
+            MenuId
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.RoleMenu.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.RoleMenu.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.RoleMenu.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.RoleMenu.Modifier">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.RoleMenu.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.RoleMenuMapper">
+            <summary>
+            RoleMenu 映射类
+            </summary>
+            创建人：朱明明
+            创建时间：2016/5/23 15:03:02
+        </member>
+        <member name="M:MDORM.Entity.RoleMenuMapper.#ctor">
+            <summary>
+            RoleMenu Mapper构造函数（可自定义Mapper）
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.SysUser">
+            <summary>
+            SysUser 实体类,包括:属性，重写的ToString方法
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:33
+        </member>
+        <member name="M:MDORM.Entity.SysUser.ToString">
+            <summary>
+            返回这个对象的JSON格式字符串，方便记录日志
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.ID">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.UserName">
+            <summary>
+            用户名称
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.TrueName">
+            <summary>
+            真是姓名
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.UserType">
+            <summary>
+            UserType
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.Sex">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.BirthDay">
+            <summary>
+            出生日期
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.LoginIP">
+            <summary>
+            本次登录IP
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.LoginTime">
+            <summary>
+            本次登录时间
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.LastLoginIP">
+            <summary>
+            最后登录IP
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.LastLoginTime">
+            <summary>
+            最后登录时间
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.Remark">
+            <summary>
+            信息备注
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.Modifier">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.SysUser.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.SysUserMapper">
+            <summary>
+            SysUser 映射类
+            </summary>
+            创建人：朱明明
+            创建时间：2016/5/23 15:03:02
+        </member>
+        <member name="M:MDORM.Entity.SysUserMapper.#ctor">
+            <summary>
+            SysUser Mapper构造函数（可自定义Mapper）
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.UserMenu">
+            <summary>
+            UserMenu 实体类,包括:属性，重写的ToString方法
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:34
+        </member>
+        <member name="M:MDORM.Entity.UserMenu.ToString">
+            <summary>
+            返回这个对象的JSON格式字符串，方便记录日志
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:MDORM.Entity.UserMenu.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserMenu.UserId">
+            <summary>
+            UserId
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserMenu.MenuId">
+            <summary>
+            MenuId
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserMenu.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserMenu.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserMenu.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserMenu.Modifier">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserMenu.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.UserMenuMapper">
+            <summary>
+            UserMenu 映射类
+            </summary>
+            创建人：朱明明
+            创建时间：2016/5/23 15:03:02
+        </member>
+        <member name="M:MDORM.Entity.UserMenuMapper.#ctor">
+            <summary>
+            UserMenu Mapper构造函数（可自定义Mapper）
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.UserRole">
+            <summary>
+            UserRole 实体类,包括:属性，重写的ToString方法
+            </summary>
+            创建人：zhumingming(Berton)
+            创建时间：2016/6/2 11:14:34
+        </member>
+        <member name="M:MDORM.Entity.UserRole.ToString">
+            <summary>
+            返回这个对象的JSON格式字符串，方便记录日志
+            </summary>
+            <returns>
+            A <see cref="T:System.String"/> that represents this instance.
+            </returns>
+        </member>
+        <member name="P:MDORM.Entity.UserRole.ID">
+            <summary>
+            ID
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserRole.UserId">
+            <summary>
+            UserId
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserRole.RoleId">
+            <summary>
+            RoleId
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserRole.Enable">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserRole.Creater">
+            <summary>
+            创建人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserRole.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserRole.Modifier">
+            <summary>
+            修改人
+            </summary>
+        </member>
+        <member name="P:MDORM.Entity.UserRole.ModifyTime">
+            <summary>
+            修改时间
+            </summary>
+        </member>
+        <member name="T:MDORM.Entity.UserRoleMapper">
+            <summary>
+            UserRole 映射类
+            </summary>
+            创建人：朱明明
+            创建时间：2016/5/23 15:03:02
+        </member>
+        <member name="M:MDORM.Entity.UserRoleMapper.#ctor">
+            <summary>
+            UserRole Mapper构造函数（可自定义Mapper）
+            </summary>
+        </member>
+    </members>
+</doc>
